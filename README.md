@@ -1,11 +1,13 @@
 # Hackaton
 
-Integrantes del equipo 
+Integrantes del equipo:
 
 José Andrés Carlos Lopez 
 
-Edwin Hazel Chávez Martínez 
+Edwin Hazel Chávez Martínez
+  @edwinhazel
 
-Aaron Andoni 
+Andoni Aarón Reyes Rodríguez
+  @eersya
 
 Antonio Alvarez 
