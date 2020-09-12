@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
 
-    'salon.apps.SalonConfig'
+    'gestor.apps.GestorConfig'
 ]
 
 MIDDLEWARE = [
