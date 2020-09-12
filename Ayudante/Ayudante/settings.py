@@ -78,8 +78,12 @@ WSGI_APPLICATION = 'Ayudante.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dev-ayudante',
+        'USER': 'admin',
+        'PASSWORD': '89910701',
+        'HOST': 'dev-ayudante.cirlqu8bftpw.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
     }
 }
 
