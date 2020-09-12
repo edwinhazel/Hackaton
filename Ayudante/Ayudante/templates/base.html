@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<html>
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -7,9 +9,47 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 
-{% block content %}
+<body>
 
-<!-- Aquí va el contenido que ocupan otras views o otras apps de Django -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-brand" href="#">Ayudante</a> / {% block hl %}{% endblock %}
+            <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggle-icon"></span>
+            </button>
 
-{% endblock %}
+            <div class="collapse navbar-collapse" id="navbarText">
+                <span class="navbar-text">
+                    {% if user.is_authenticated %}
+                        Hola
+                    {% else %}
+                        <button class="btn my-2 my-sm-0" href="{% url 'login' %}">Iniciar Seseión</button>
+                    {% endif %}
+                </span>
+                
+            </div>
 
+        </nav>
+    </header>
+
+    <main role="main" class="container" style="padding: 60px 15px 0;">
+        <div class="row">
+            <div class="col-lg-9">
+                {% block content %}
+                    <!-- Aquí va el contenido que ocupan otras views o otras apps de Django -->
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+
+</body>
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted"><a href="https://github.com/edwinhazel/Hackaton">Code</a></span>
+    </div>
+</footer>
+
+</html>
