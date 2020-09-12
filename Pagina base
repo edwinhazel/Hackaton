@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="ulf-8" />
+        <title>Ayudante Virtual</title>
+    </head>
+    <body>
+        <h1>Ayudante Virtual </h1>
+        <h2>
+            El objetivo de esta pagina es ofrecer una herramienta digital que permita el reconocimiento de palabras de interes en videos proporcionados por los creadores para los usuarios de los mismos. De esta forma agilizar la busqueda de la información dentro del contenido proporcionado y brindar al usuario contenido relacionado al tema de interes del usuario, asi como videos e información textual.
+        </h2>
+        <h2>Desarrolladores</h2>
+        <h3>
+            Carlos López >José Andrés
+            Chavez Martinez Edwin Hazel 
+            Reyes Rodrigez Andoni Aron
+        </h3>
+        Herramientas disponibles para:
+        
+        <h2>Creadores</h2>
+        <h2>Usuarios</h2>
+
+    </body>
+</html>
