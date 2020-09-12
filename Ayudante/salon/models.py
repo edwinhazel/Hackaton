@@ -20,6 +20,7 @@ class Estudiante(models.Model):
 class Clase(models.Model):
     id_clase = models.IntegerField(primary_key=True)
     salon = models.ForeignKey(Salon, on_delete=models.CASCADE)
+    audio = models.FileField(upload_to='audios/', null=True)
 
     def __str__(self):
         return "id_clase:%d clave_salon:%d" % (self.id_clase, self.clave_salon)
