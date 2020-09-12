@@ -7,7 +7,7 @@ NAMELESS = 'Sin Nombre'
 
 class Salon(models.Model):
     clave = models.IntegerField(primary_key=True)
-    user = models.ForeignKey(
+    id_user = models.ForeignKey(
         User, 
         on_delete=models.SET_NULL,
         blank=True,
@@ -16,10 +16,10 @@ class Salon(models.Model):
     descripcion = models.TextField(max_length=100, null=True)
 
     def __str__(self):
-        return "clave:%d id_user:%d" % (self.clave, self.id_user)
+        return "clave:%d id_user:" % (self.clave)
 
 class Estudiante(models.Model):
-    id_user = models.IntegerField(primary_key=True)
+    id_estudiante = models.IntegerField(primary_key=True)
     salon = models.ForeignKey(
         Salon, 
         on_delete=models.SET_NULL,

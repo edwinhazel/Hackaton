@@ -23,11 +23,12 @@ class SalonCreateView(CreateView, LoginRequiredMixin):
     model = Salon
     form_class = SalonCreateForm
 
-class SalonUpdateView(UpdateView, LoginRequiredMixin):
+class SalonUpdateView(UpdateView, SingleObjectMixin, LoginRequiredMixin):
     template_name = 'SalonCreate.html'
     login_url = '/login/'
     redirect_field_name = 'login'
     model = Salon
+    pk_url_kwarg='clave'
     form_class = SalonUpdateForm
 
 class EstudianteCreateView(CreateView, LoginRequiredMixin):

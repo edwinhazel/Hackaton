@@ -6,6 +6,26 @@
 
 {% block content %}
 
-<
+{% load widget_tweaks %}
+
+<form method="POST"> {% csrf_token %}
+
+    <div class="form-group">
+        <div class="input-group">
+            <label for="{{ form.descripcion.if_for_label }}">{{ form.descripcion.label_tag }}</label>
+            {{ form.descripcion|add_class:'form-control' }}
+            {% for error in form.descripcion.errors %}
+                <span class="help-block">
+                    {{ error }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear Salón">
+    </div>
+
+</form>
 
 {% endblock %}

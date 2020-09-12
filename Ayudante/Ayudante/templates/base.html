@@ -10,40 +10,56 @@
 </head>
 
 <body>
+    <div class="container">
 
-    <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="#">Ayudante</a> / {% block hl %}{% endblock %}
-            <button class="navbar-toggler" type="button"
-                data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggle-icon"></span>
-            </button>
+            <div class="container-fluid">
 
-            <div class="collapse navbar-collapse" id="navbarText">
-                <span class="navbar-text">
-                    {% if user.is_authenticated %}
-                        Hola
-                    {% else %}
-                        <button class="btn my-2 my-sm-0" href="{% url 'login' %}">Iniciar Seseión</button>
-                    {% endif %}
-                </span>
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button"
+                        data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggle-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Ayudante</a>
+                </div>
                 
-            </div>
 
+                <div id="navbar" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav">
+                        {% block actions %}
+                        {% endblock actions %}
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {% if user.is_authenticated %}
+                                Hola {{ user.username }}
+                            {% else %}
+                                <button class="btn my-2 my-sm-0" href="{% url 'login' %}">Iniciar Seseión</button>
+                            {% endif %}
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
         </nav>
-    </header>
 
-    <main role="main" class="container" style="padding: 60px 15px 0;">
-        <div class="row">
-            <div class="col-lg-9">
-                {% block content %}
-                    <!-- Aquí va el contenido que ocupan otras views o otras apps de Django -->
-                {% endblock %}
-            </div>
+        <div class="jumbotron">
+            <main role="main" class="container" style="padding: 60px 15px 0;">
+                <div class="row">
+                    <div class="col-lg-6">
+                        {% block content %}
+                            <!-- Aquí va el contenido que ocupan otras views o otras apps de Django -->
+                        {% endblock %}
+                    </div>
+                </div>
+            </main>
         </div>
-    </main>
 
+    </div>
 </body>
 
 <footer class="footer">

@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
-{% block hl %}
+{% block actions %}
+<li>
     <a href="{% url 'login' %}">Inicio de sesión</a>
+</li>
 {% endblock %}
 
 {% block title %}
@@ -11,6 +13,7 @@
 {% block content %}
 
 <h2>Inicio de sesión</h2>
+<div class="center">
 
 <form role="form" method="POST" action="{% url 'login' %}"> {% csrf_token %}
 
@@ -47,5 +50,7 @@
         <input type="submit" value="Iniciar Sesión">
     </div>
 </form>
+
+</div>
 
 {% endblock %}
