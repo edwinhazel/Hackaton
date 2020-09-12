@@ -14,6 +14,15 @@ class SalonCreateForm(ModelForm):
             'descripcion': 'Descripción',
         }
 
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user')
+        super(SalonCreateForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        new_salon = super(SalonCreateForm, self).save(commit=False)
+        new_salon.id_user = self.user
+        new_salon.save()
+
 class SalonUpdateForm(ModelForm):
     class Meta:
         model = Salon

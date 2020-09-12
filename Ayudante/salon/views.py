@@ -23,8 +23,13 @@ class SalonCreateView(CreateView, LoginRequiredMixin):
     model = Salon
     form_class = SalonCreateForm
 
+    def get_form_kwargs(self):
+        kwargs = super(SalonCreateView, self).get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
 class SalonUpdateView(UpdateView, SingleObjectMixin, LoginRequiredMixin):
-    template_name = 'SalonCreate.html'
+    template_name = 'SalonUpdate.html'
     login_url = '/login/'
     redirect_field_name = 'login'
     model = Salon
