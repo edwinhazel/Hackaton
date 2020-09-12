@@ -26,5 +26,5 @@ urlpatterns = [
     path('gestor/', include('gestor.urls')),
     path('', TemplateView.as_view(template_name="home.html"), name='home'),
     path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(next_page='')),
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 ]
