@@ -6,6 +6,7 @@ app_name = 'gestor'
 
 urlpatterns = [
     path('salon/crear/', views.SalonCreateView.as_view(), name='create_salon'),
+    path('salon/<int:clave>/', views.SalonDetailView.as_view(), name='detail_salon'),
     path('salon/<int:clave>/actualizar/', views.SalonUpdateView.as_view(), name='update_salon'),
 ]
 

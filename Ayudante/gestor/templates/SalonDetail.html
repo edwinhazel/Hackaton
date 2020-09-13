@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Salon {{ salon.clave }}
+{% endblock %}
+
+{% block content %}
+
+{% load widget_tweaks %}
+
+<h2>Información de Salon/{{ salon.clave }}</h2>
+
+<h4>Estudiantes:</h4>
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+</table>
+
+<h4>Clases:</h4>
+<table class="table">
+
+</table>
+
+
+<a href="{% url 'gestor:create_estudiante' salon.clave %}">Crear estudiante</a>
+<a href="{% url 'gestor:create_estudiante' salon.clave %}">Crear estudiante</a>
+
+{% endblock %}
