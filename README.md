@@ -31,3 +31,7 @@ Antonio Alvarez
 - RDS
 	* Aurora
 - Kinesis Data Stream
+
+### Descripción del proyecto en AWS
+
+Almacenamiento de datos a traves de los servidores de AWS para su procesamiento y analisis en tiempo real, utilizando herramientas como Aurora y Kinesis para llevar la estadistica en tiempo real de los Estudiantes. Supervisar el rendimiento del \textbf{Aula Virtual}
