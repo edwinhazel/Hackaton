@@ -32,9 +32,9 @@ Almacenamiento de datos proporcionado por Docentes y Alumnos a traves de los ser
 
 ### Encargado del curso
 
-*Cuestionarios en tiempo real*. Prepara y lanza preguntas a los integrantes del Aula y con ello sacar una estadistica en tiempo real con *Kinesis Data Stream* y *KInesis Data Analytics*, recursos con los cuales podrá tener un mejor monitoreo de aprendizaje en curso. 
+**Cuestionarios en tiempo real**. Prepara y lanza preguntas a los integrantes del Aula y con ello sacar una estadistica en tiempo real con *Kinesis Data Stream* y *KInesis Data Analytics*, recursos con los cuales podrá tener un mejor monitoreo de aprendizaje en curso. 
 
-*Estadisticas de los participantes*. Extrae información desde la nube para su posterior analísis, ahorrando tiempo al momento de las evaluaciones y ocupandose de lo realmente importante, el aprendizaje 
+**Estadisticas de los participantes**. Extrae información desde la nube para su posterior analísis, ahorrando tiempo al momento de las evaluaciones y ocupandose de lo realmente importante, el aprendizaje 
 
 ### Participantes del curso
 
