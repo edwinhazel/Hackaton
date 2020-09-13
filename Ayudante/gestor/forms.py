@@ -37,12 +37,12 @@ class EstudianteCreateForm(ModelForm):
     class Meta:
         model = Estudiante
         fields = {
-            'name',
+            'nombre',
             'email',
         }
         exclude = ['salon',]
         labels = {
-            'name': 'Nombre',
+            'nombre': 'Nombre',
             'email': 'Correo',
         }
 
@@ -50,12 +50,12 @@ class EstudianteUpdateForm(ModelForm):
     class Meta:
         model = Estudiante
         fields = {
-            'name',
+            'nombre',
             'email',
         }
         exclude = ['salon',]
         labels = {
-            'name': 'Nombre',
+            'nombre': 'Nombre',
             'email': 'Correo',
         }
 

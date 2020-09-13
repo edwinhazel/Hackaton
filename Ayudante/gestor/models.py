@@ -26,7 +26,7 @@ class Estudiante(models.Model):
         blank=True,
         null=True,
     )
-    name = models.TextField(null=True)
+    nombre = models.TextField(null=True)
     email = models.EmailField(null=True)
     def __str__(self):
         return "<Estudiante:%d> --> %s" % (self.id_estudiante, self.salon)

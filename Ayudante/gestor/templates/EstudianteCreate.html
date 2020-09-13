@@ -14,9 +14,9 @@
 
     <div class="form-group">
         <div class="input-group">
-            <label for="{{ form.name.if_for_label }}">{{ form.name.label_tag }}</label>
-            {{ form.name|add_class:'form-control' }}
-            {% for error in form.name.errors %}
+            <label for="{{ form.nombre.if_for_label }}">{{ form.nombre.label_tag }}</label>
+            {{ form.nombre|add_class:'form-control' }}
+            {% for error in form.nombre.errors %}
                 <span class="help-block">
                     {{ error }}
                 </span>

@@ -13,6 +13,10 @@ from django.views.generic.detail import SingleObjectMixin
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.views.generic.base import TemplateView
+
+from django.views.generic.detail import DetailView
+
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
@@ -28,9 +32,23 @@ class SalonCreateView(CreateView, LoginRequiredMixin):
         kwargs.update({'user': self.request.user})
         return kwargs
 
+class SalonDetailView(DetailView, LoginRequiredMixin):
+    template_name = "SalonDetail.html"
+    login_url = 'login/'
+    redirect_field_name = 'login'
+    model = Salon
+    pk_url_kwarg='clave'
+    context_object_name = 'salon'
+    
+    def get_context_data(self, **kwargs):
+        context = context = super().get_context_data(**kwargs)
+        context['estudiantes'] = Estudiante.objects.get(salon=kwargs['clave'])
+        context['clases'] = Clase.objects.get(salon=kwargs['clave'])
+        return context
+
 class SalonUpdateView(UpdateView, SingleObjectMixin, LoginRequiredMixin):
     template_name = "SalonUpdate.html"
-    login_url = '/login/'
+    login_url = 'login/'
     redirect_field_name = 'login'
     model = Salon
     pk_url_kwarg='clave'
@@ -53,7 +71,7 @@ class EstudianteCreateView(CreateView, LoginRequiredMixin):
 
 class EstudianteUpdateView(UpdateView, LoginRequiredMixin):
     template_name = "EstudianteUpdate.html"
-    login_url = '/login/'
+    login_url = 'login/'
     redirect_field_name = 'login'
     model = Estudiante
     form_class = EstudianteUpdateForm
@@ -74,7 +92,7 @@ class ClaseCreateView(CreateView, LoginRequiredMixin):
 
 class ClaseUpdateView(UpdateView, LoginRequiredMixin):
     template_name = "ClaseUpdate.html"
-    login_url = '/login/'
+    login_url = 'login/'
     redirect_field_name = 'login'
     model = Clase
     form_class = ClaseUpdateForm
