@@ -34,4 +34,11 @@ Antonio Alvarez
 
 ### Descripción del proyecto en AWS
 
-Almacenamiento de datos a traves de los servidores de AWS para su procesamiento y analisis en tiempo real, utilizando herramientas como Aurora y Kinesis para llevar la estadistica en tiempo real de los Estudiantes. Supervisar el rendimiento del **Aula Virtual**
+Almacenamiento de datos proporcionado por Docentes y Alumnos a traves de los servidores de AWS para su procesamiento y analisis en tiempo real, utilizando herramientas como Aurora y Kinesis para llevar la estadistica en tiempo real de los Estudiantes. Supervisar el rendimiento de los usuarios a través de un **Aula Virtual**. Esta App busca ser una herramienta de entorno amigable, inclusiva y de facíl manejo. 
+
+¿Cómo pueden ver los docentes el rendimiento de sus educandos conforme avanza el curso?
+
+
+- Encargado del curso
+
+*Cuestionarios en tiempo real*. Prepara y lanza preguntas a los integrantes del Aula y con ello sacar una estadistica en tiempo real con *Kinesis Data Stream* y *KInesis Data Anallytics* 
