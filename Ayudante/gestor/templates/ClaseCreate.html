@@ -6,4 +6,52 @@
 
 {% block content %}
 
+<h2>Creación de Clase</h2>
+
+{% load widget_tweaks %}
+
+<form method="POST"> {% csrf_token %}
+
+    <div class="form-group">
+        <div class="input-group">
+            <label for="{{ form.nombre.if_for_label }}">{{ form.nombre.label_tag }}</label>
+            {{ form.nombre|add_class:'form-control' }}
+            {% for error in form.nombre.errors %}
+                <span class="help-block">
+                    {{ error }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <label for="{{ form.descripcion.if_for_label }}">{{ form.descripcion.label_tag }}</label>
+            {{ form.descripcion|add_class:'form-control' }}
+            {% for error in form.descripcion.errors %}
+                <span class="help-block">
+                    {{ error }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <label for="{{ form.audio.if_for_label }}">{{ form.audio.label_tag }}</label>
+            {{ form.audio|add_class:'form-control' }}
+            {% for error in form.audio.errors %}
+                <span class="help-block">
+                    {{ error }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear Salon">
+    </div>
+
+</form>
+
 {% endblock %}

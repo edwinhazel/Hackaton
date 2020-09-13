@@ -40,6 +40,7 @@ class EstudianteCreateForm(ModelForm):
             'name',
             'email',
         }
+        exclude = ['salon',]
         labels = {
             'name': 'Nombre',
             'email': 'Correo',
@@ -52,31 +53,54 @@ class EstudianteUpdateForm(ModelForm):
             'name',
             'email',
         }
+        exclude = ['salon',]
         labels = {
             'name': 'Nombre',
             'email': 'Correo',
         }
 
+    def __init__(self, *args, **kwargs):
+        self.salon = kwargs.pop('clave')
+        super(EstudianteUpdateForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        new_salon = super(EstudianteUpdateForm, self).save(commit=False)
+        new_salon.salon = self.salon
+        new_salon.save()
+
 class ClaseCreateForm(ModelForm):
     class Meta:
         model = Clase
         fields = {
-            'nombre_clase',
+            'nombre',
             'descripcion',
+            'audio',
         }
+        exclude = ['salon',]
         labels = {
-            'nombre_clase': 'Nombre de clase',
+            'nombre': 'Nombre de clase',
             'descripcion': 'Descripción',
+            'audio': 'Audio',
         }
 
 class ClaseUpdateForm(ModelForm):
     class Meta:
         model = Clase
         fields = {
-            'nombre_clase',
+            'nombre',
             'descripcion',
         }
+        exclude = ['salon',]
         labels = {
-            'nombre_clase': 'Nombre de clase',
+            'nombre': 'Nombre de clase',
             'descripcion': 'Descripción',
         }
+
+    def __init__(self, *args, **kwargs):
+        self.salon = kwargs.pop('clave')
+        super(ClaseUpdateForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        new_salon = super(ClaseUpdateForm, self).save(commit=False)
+        new_salon.salon = self.salon
+        new_salon.save()

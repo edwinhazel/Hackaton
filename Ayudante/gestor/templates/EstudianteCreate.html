@@ -6,4 +6,40 @@
 
 {% block content %}
 
+<h2>Creación de Estudiante</h2>
+
+{% load widget_tweaks %}
+
+<form method="POST"> {% csrf_token %}
+
+    <div class="form-group">
+        <div class="input-group">
+            <label for="{{ form.name.if_for_label }}">{{ form.name.label_tag }}</label>
+            {{ form.name|add_class:'form-control' }}
+            {% for error in form.name.errors %}
+                <span class="help-block">
+                    {{ error }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+            <label for="{{ form.email.if_for_label }}">{{ form.email.label_tag }}</label>
+            {{ form.email|add_class:'form-control' }}
+            {% for error in form.email.errors %}
+                <span class="help-block">
+                    {{ error }}
+                </span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear Salon">
+    </div>
+
+</form>
+
 {% endblock %}

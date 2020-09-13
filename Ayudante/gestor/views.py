@@ -18,7 +18,7 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 
 class SalonCreateView(CreateView, LoginRequiredMixin):
-    template_name = 'SalonCreate.html'
+    template_name = "SalonCreate.html"
     login_url = 'login/'
     model = Salon
     form_class = SalonCreateForm
@@ -29,35 +29,48 @@ class SalonCreateView(CreateView, LoginRequiredMixin):
         return kwargs
 
 class SalonUpdateView(UpdateView, SingleObjectMixin, LoginRequiredMixin):
-    template_name = 'SalonUpdate.html'
+    template_name = "SalonUpdate.html"
     login_url = '/login/'
     redirect_field_name = 'login'
     model = Salon
     pk_url_kwarg='clave'
+    context_object_name = 'salon'
     form_class = SalonUpdateForm
 
+    def get(self, request, *args, **kwargs):
+        return super().get(request, *args, **kwargs)
+        print(self.get_object())
+
 class EstudianteCreateView(CreateView, LoginRequiredMixin):
-    template_name = 'EstudianteCreate.html'
+    template_name = "EstudianteCreate.html"
     login_url = 'login/'
     model = Estudiante
     form_class = EstudianteCreateForm
 
+    def form_valid(self, form):
+        form.instance.salon = Salon.objects.get(clave=self.kwargs['clave'])
+        return super().form_valid(form)
+
 class EstudianteUpdateView(UpdateView, LoginRequiredMixin):
-    template_name = 'EstudianteUpdate.html'
+    template_name = "EstudianteUpdate.html"
     login_url = '/login/'
     redirect_field_name = 'login'
     model = Estudiante
     form_class = EstudianteUpdateForm
 
 class ClaseCreateView(CreateView, LoginRequiredMixin):
-    template_name = 'ClaseCreate.html'
+    template_name = "ClaseCreate.html"
     login_url = '/login/'
     redirect_field_name = 'login'
     model = Clase
     form_class = ClaseCreateForm
 
+    def form_valid(self, form):
+        form.instance.salon = Salon.objects.get(clave=self.kwargs['clave'])
+        return super().form_valid(form)
+
 class ClaseUpdateView(UpdateView, LoginRequiredMixin):
-    template_name = 'ClaseUpdate.html'
+    template_name = "ClaseUpdate.html"
     login_url = '/login/'
     redirect_field_name = 'login'
     model = Clase

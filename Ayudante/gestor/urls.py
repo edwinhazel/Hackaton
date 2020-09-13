@@ -18,5 +18,5 @@ urlpatterns += [
 # URLs para la alta, baja y cambio de clase
 urlpatterns += [
     path('salon/<int:clave>/clase/crear/', views.ClaseCreateView.as_view(), name='create_clase'),
-    path('salon/<int:clave>/clase/<int:id_estudiante>/', views.ClaseUpdateView.as_view(), name='update_clase'),
+    path('salon/<int:clave>/clase/<int:id_clase>/', views.ClaseUpdateView.as_view(), name='update_clase'),
 ]

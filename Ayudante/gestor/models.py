@@ -16,7 +16,7 @@ class Salon(models.Model):
     descripcion = models.TextField(max_length=100, null=True)
 
     def __str__(self):
-        return "clave:%d id_user:" % (self.clave)
+        return "clave:%d id_user:%s" % (self.clave, self.user)
 
 class Estudiante(models.Model):
     id_estudiante = models.IntegerField(primary_key=True)
@@ -29,7 +29,7 @@ class Estudiante(models.Model):
     name = models.TextField(null=True)
     email = models.EmailField(null=True)
     def __str__(self):
-        return "id_user:%d clave_salon:%d" % (self.id_estudiante, self.salon)
+        return "id_user:%d clave_salon:%s" % (self.id_estudiante, self.salon)
 
 
 class Clase(models.Model):
@@ -40,9 +40,9 @@ class Clase(models.Model):
         blank=True,
         null=True,
     )
-    nombre_clase = models.TextField(null=False, default=NAMELESS)
+    nombre = models.TextField(null=False, default=NAMELESS)
     descripcion = models.TextField(null=False, default=DESCRIPTIONLESS)
     audio = models.FileField(upload_to='audios/', null=True)
 
     def __str__(self):
-        return "id_clase:%d clave_salon:%d" % (self.id_clase, self.clave_salon)
+        return "id_clase:%d clave_salon:%s" % (self.id_clase, self.clave_salon)
