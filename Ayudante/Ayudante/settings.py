@@ -25,7 +25,10 @@ SECRET_KEY = 'w1bq5qb%qrhj+uij3!a@8+-n%z64le23d%+jlrkwql(9-+dqm%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    #'localhost',
+    #'ec2-3-236-126-99.compute1.amazonaws.com',
+]
 
 
 # Application definition
@@ -70,6 +73,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'Ayudante.wsgi.application'
 
 
@@ -78,12 +82,8 @@ WSGI_APPLICATION = 'Ayudante.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dev-ayudante',
-        'USER': 'admin',
-        'PASSWORD': '89910701',
-        'HOST': 'dev-ayudante.cirlqu8bftpw.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
