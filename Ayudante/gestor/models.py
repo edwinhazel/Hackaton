@@ -7,7 +7,7 @@ NAMELESS = 'Sin Nombre'
 
 class Salon(models.Model):
     clave = models.IntegerField(primary_key=True)
-    id_user = models.ForeignKey(
+    user = models.ForeignKey(
         User, 
         on_delete=models.SET_NULL,
         blank=True,
@@ -33,16 +33,16 @@ class Estudiante(models.Model):
 
 
 class Clase(models.Model):
-    id_clase = models.IntegerField(primary_key=True)
+    clase = models.IntegerField(primary_key=True)
     salon = models.ForeignKey(
         Salon,
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
     )
-    nombre = models.TextField(null=False, default=NAMELESS)
+    nombre = models.TextField(default=NAMELESS)
     descripcion = models.TextField(null=False, default=DESCRIPTIONLESS)
     audio = models.FileField(upload_to='audios/', null=True)
 
     def __str__(self):
-        return "id_clase:%d clave_salon:%s" % (self.id_clase, self.clave_salon)
+        return "id_clase:%d clave_salon:%s" % (self.clase, self.salon)

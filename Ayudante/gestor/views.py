@@ -69,6 +69,9 @@ class ClaseCreateView(CreateView, LoginRequiredMixin):
         form.instance.salon = Salon.objects.get(clave=self.kwargs['clave'])
         return super().form_valid(form)
 
+    def get_success_url(self, **kwargs):
+        return reverse('gestor:create_clase', kwargs={'clave': self.kwargs['clave']})
+
 class ClaseUpdateView(UpdateView, LoginRequiredMixin):
     template_name = "ClaseUpdate.html"
     login_url = '/login/'
