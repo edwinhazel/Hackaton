@@ -23,3 +23,11 @@ Antonio Alvarez
 ### Requesitos para el proyecto
 1. Django
 - dejango-widget-tweaks
+2. AWS
+- CloudFormation
+- S3
+- EC2
+- Transcribe
+- RDS
+	* Aurora
+- Kinesis Data Stream
