@@ -14,21 +14,53 @@
 <table class="table">
     <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
         </tr>
-      </thead>
+    </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'gestor:update_estudiante' salon.clave estudiante.id_estudiante %}">
+                            {{ estudiante.id_estudiante }}
+                        </a>
+                    </th>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
 </table>
+
+<a href="{% url 'gestor:create_estudiante' salon.clave %}">Crear estudiante</a>
 
 <h4>Clases:</h4>
 <table class="table">
-
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+        <tbody>
+            {% for clase in clases %}
+                <tr>
+                    <th scope="row">
+                        <a href="{% url 'gestor:update_clase' salon.clave clase.num_clase %}">
+                            {{ clase.num_clase }}
+                        </a>
+                    </th>
+                    <td>{{ clase.nombre }}</td>
+                    <td>{{ clase.descripcion }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
 </table>
 
 
-<a href="{% url 'gestor:create_estudiante' salon.clave %}">Crear estudiante</a>
-<a href="{% url 'gestor:create_estudiante' salon.clave %}">Crear estudiante</a>
+<a href="{% url 'gestor:create_clase' salon.clave %}">Crear clase</a>
 
 {% endblock %}

@@ -16,7 +16,7 @@ class Salon(models.Model):
     descripcion = models.TextField(max_length=100, null=True)
 
     def __str__(self):
-        return "<Salon:%d> %s" % (self.clave, self.user)
+        return "%d" % (self.clave)
 
 class Estudiante(models.Model):
     id_estudiante = models.IntegerField(primary_key=True)
@@ -33,7 +33,7 @@ class Estudiante(models.Model):
 
 
 class Clase(models.Model):
-    clase = models.IntegerField(primary_key=True)
+    num_clase = models.IntegerField(primary_key=True)
     salon = models.ForeignKey(
         Salon,
         on_delete=models.SET_NULL,
@@ -45,4 +45,4 @@ class Clase(models.Model):
     audio = models.FileField(upload_to='audios/', null=True)
 
     def __str__(self):
-        return "<Clase:%d> --> %s" % (self.clase, self.salon)
+        return "<Clase:%d> --> %s" % (self.num_clase, self.salon)
