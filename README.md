@@ -10,8 +10,8 @@ Andoni Aarón Reyes Rodríguez @github/eersya
 
 Antonio Alvarez
 
-## Diagrama del funcionamiento del proyecto
-![Digrama](DiagramaFuncionamiento.png)
+## Funcionamiento
+![Digrama que describe el funcoionamiento del proyecto](DiagramaFuncionamiento.png)
 
 ##  Herramientas ocupadas
 
